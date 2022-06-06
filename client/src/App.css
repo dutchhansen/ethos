@@ -95,6 +95,7 @@ button {
   justify-content: space-between;
   align-items: flex-end;
   background: white;
+  cursor: pointer;
 }
 .song-text {
   margin-bottom: .3rem;
@@ -144,6 +145,16 @@ button {
   margin-top: -5%;
 }
 
+/* AUDIO PLAYER FIXME: add in hyperlink */
+.audio-player img, .audio-player p {
+  display: none;
+}
+
+.audio-player svg {
+  height: 15px;
+}
+
+
 .lower-media {
   overflow: scroll;
   scroll-behavior: smooth;
@@ -162,7 +173,6 @@ button {
     transform: translateX(0);
   }
 }
-
 
 
 

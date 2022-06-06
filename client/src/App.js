@@ -9,7 +9,6 @@ function App() {
     const [token, setToken] = useState(null);
     const [profile, setProfile] = useState(null);
     const [topTracks, setTopTracks] = useState(null);
-    const [searchString, setSearchString] = useState('Cleo Sol');
 
     useEffect(() => {
         setToken(access_token);
@@ -34,6 +33,7 @@ function App() {
 
     }, []);
 
+
     const today = new Date()
     let day = today.getDate();
     let month = today.getMonth() + 1;
@@ -47,7 +47,7 @@ function App() {
             ) : (
                 <>
                     <div className="navbar-primary">
-                        <p className="status-item">Now playing: </p>
+                        <p className="status-item">Ethos</p>
                         <p className="status-item">{date}</p>
                         <div className='status-item'>
                             {profile && (
@@ -58,7 +58,7 @@ function App() {
                         </div>
 
                     </div>
-                    <Home token={token} tracks={topTracks}/>
+                    <Home token={token} tracks={topTracks} />
                 </>
             )}
         </div>

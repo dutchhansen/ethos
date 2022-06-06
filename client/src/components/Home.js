@@ -1,7 +1,11 @@
 import SongItem from "./SongItem";
 import Player from "./Player";
+import {useState} from 'react';
 
 function Home(props) {
+    const [selectedURI, setSelectedURI] = useState('');
+    const [selectedAlbumCover, setSelectedAlbumCover] = useState('');
+    const [playNow, setPlayNow] = useState(false);
 
     return (
         <div>
@@ -15,7 +19,11 @@ function Home(props) {
                     <div className='song-selection'>
                         {props.tracks && props.tracks.length ? (
                             props.tracks.map((track, i) => (
-                                <div key={track.id} className='song-item'>
+                                <div key={track.id} className='song-item' onClick={() => {
+                                    setSelectedURI(track.uri)
+                                    setSelectedAlbumCover(track.album.images[0].url)
+                                    setPlayNow(true)
+                                }}>
                                     <p className='song-text'>{track.name}</p>
                                     <p className='song-text song-text-right'>{track.artists[0].name}</p>
                                 </div>
@@ -27,18 +35,22 @@ function Home(props) {
                     </div>
                 </div>
                 <div className='dashboard-panel media-panel'>
-
-                    <div className='upper-media'>
-
-                        <div className='album-cover'>
-                            <img src='https://i.scdn.co/image/ab67616d0000b2739ea8c8d190d896bcb886bf6b' alt='album artwork'/>
+                    {selectedAlbumCover ? (
+                        <div className='upper-media'>
+                            <div className='album-cover'>
+                                <img src={selectedAlbumCover} alt='album artwork'/>
+                            </div>
+                            <div className='song-name'>
+                                <p>Isaiah Rashad</p>
+                                <h1>9-5 Freestyle</h1>
+                                <Player token={props.token} selectedURI={selectedURI} playNow={playNow} />
+                            </div>
                         </div>
-                        <div className='song-name'>
-                            <p>Isaiah Rashad</p>
-                            <h1>9-5 Freestyle</h1>
-                            <Player token={props.token} tracks={props.tracks}/>
+                        ) : (
+                        <div className='upper-media'>
+                            <h2>No media selected.</h2>
                         </div>
-                    </div>
+                        )}
 
                     <div className='lower-media'>
                         <p>

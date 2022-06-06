@@ -2,12 +2,22 @@ import SpotifyPlayer from "react-spotify-web-playback";
 
 
 function Player(props) {
+
+
     return (
-        <div>
+        <div className='audio-player'>
             <SpotifyPlayer
                 token={props.token}
-                showSaveIcon
-                uris={['spotify:track:6kP92fKzIyVJtNobCRsZ6G']}
+                play={props.playNow}
+                uris={[props.selectedURI]}
+                styles={{
+                    activeColor: '#fff',
+                    color: '#000',
+                    loaderColor: '#fff',
+                    sliderColor: '#000',
+                    trackArtistColor: '#fff',
+                    trackNameColor: '#fff',
+                }}
             ></SpotifyPlayer>
         </div>
     );

@@ -30,14 +30,13 @@ function Home(props) {
 
                     <div className='upper-media'>
 
-                        <Player token={props.token}/>
-
                         <div className='album-cover'>
                             <img src='https://i.scdn.co/image/ab67616d0000b2739ea8c8d190d896bcb886bf6b' alt='album artwork'/>
                         </div>
                         <div className='song-name'>
                             <p>Isaiah Rashad</p>
                             <h1>9-5 Freestyle</h1>
+                            <Player token={props.token} tracks={props.tracks}/>
                         </div>
                     </div>
 

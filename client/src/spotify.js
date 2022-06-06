@@ -40,5 +40,5 @@ export const getTopTracks = () => {
 };
 
 export const searchTracks = (search) => {
-    return axios.get(`https://api.spotify.com/v1/search?limit=50&type=track&name:${search}&type=album,track`, {headers});
+    return axios.get(`https://api.spotify.com/v1/search?type=album&include_external=audio`, {headers});
 };

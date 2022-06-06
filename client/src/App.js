@@ -34,25 +34,6 @@ function App() {
 
     }, []);
 
-    useEffect(() => {
-
-        const fetchSearch = async (search) => {
-
-            const searchTracks = await searchTracks(search);
-            setTopTracks(searchTracks.data.items);
-
-            console.log(searchTracks.data.items)
-
-        }
-        try {
-            fetchSearch(searchString);
-
-        } catch (err) {
-            console.error(err);
-        }
-
-    }, [searchString]);
-
     const today = new Date()
     let day = today.getDate();
     let month = today.getMonth() + 1;
@@ -62,26 +43,22 @@ function App() {
     return (
         <div className="App">
             <div className="navbar-primary">
-                <p className="status-item">Now playing: <input type='text' placeholder='music topic' value={searchString} onChange={(e) => setSearchString(e.target.value)} /></p>
-                <p className='status-item'>00:00/00:00</p>
-                <p className='status-item'>{date}</p>
+                <p className="status-item">Now playing: </p>
+                <p className="status-item">{date}</p>
+                <div className='status-item'>
+                    {profile && (
+                        <div>
+                            <p>{profile.display_name}</p>
+                        </div>
+                    )}
+                </div>
+
             </div>
             {!token ? (
                 <Login />
             ) : (
                 <>
                     <Home tracks={topTracks}/>
-                    {/*<h1>Logged in</h1>*/}
-                    {/*{profile && (*/}
-                    {/*    <div>*/}
-                    {/*        <h1>{profile.display_name}</h1>*/}
-                    {/*        <p>{profile.followers.total} followers</p>*/}
-                    {/*        {profile.images.length && profile.images[0].url && (*/}
-                    {/*            <img src={profile.images[0].url} alt="Avatar" />*/}
-                    {/*        )}*/}
-                    {/*    </div>*/}
-                    {/*)}*/}
-
                 </>
             )}
         </div>

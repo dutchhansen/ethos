@@ -7,14 +7,14 @@ function Home(props) {
             <div className='dashboard-flex'>
                 <div className='dashboard-panel'>
                     <div className='library-info-flex'>
-                        <p className='library-option'>Liked Songs</p>
-                        <p className='library-option'>Playlists</p>
-                        <p className='library-option'>Recommended</p>
+                        <p className='library-option'>Title</p>
+                        <p className='library-option'>Top Tracks</p>
+                        <p className='library-option'>Artist</p>
                     </div>
                     <div className='song-selection'>
                         {props.tracks && props.tracks.length ? (
                             props.tracks.map((track, i) => (
-                                <div className='song-item'>
+                                <div key={track.id} className='song-item'>
                                     <p className='song-text'>{track.name}</p>
                                     <p className='song-text song-text-right'>{track.artists[0].name}</p>
                                 </div>

@@ -1,0 +1,172 @@
+.App {
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 38px;
+}
+
+.navbar-primary {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-between;
+  height: 2.6rem;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 3px solid black;
+}
+
+
+.flex-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30vh;
+}
+.login-item {
+  margin: 8px;
+}
+button {
+  border: 3px solid black;
+  font-size: 16px;
+  padding: 4px 20px;
+  background: none;
+}
+.login-button {
+  font-weight: bold;
+  transition: all 250ms;
+}
+.login-button:hover {
+  box-shadow: 10px 10px;
+  transition: all 250ms;
+}
+.login-button:active {
+  box-shadow: 15px 15px;
+  transition: all 250ms;
+}
+
+.dashboard-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 7vh;
+  width: 90%;
+  height: 85vh;
+  margin: 1% auto auto auto;
+/*  FIXME: adjust gap width and add in media query for slim viewports */
+}
+.dashboard-panel {
+  animation: slideInFromBottom 1000ms;
+  width: 50%;
+  height: 100%;
+  /*border: 1px dotted black;*/
+}
+.library-option {
+
+}
+
+.library-info-flex {
+  width: 100%;
+  height: 2.6rem;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 3px solid black;
+  justify-content: space-between;
+  background: white;
+}
+
+.song-selection {
+  height: 97.5%;
+  overflow: scroll;
+  scroll-behavior: smooth;
+}
+.song-selection::-webkit-scrollbar {
+  display: none;
+}
+
+.song-item {
+  width: 100%;
+  height: 2.6rem;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid black;
+  justify-content: space-between;
+  background: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+.media-panel {
+  padding-top: 2.6rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.upper-media {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5%;
+}
+
+.album-cover {
+  width: 50%;
+}
+.album-cover img {
+  width: 90%;
+}
+.song-name {
+  width: 50%;
+}
+.song-name p {
+  margin-top: 0;
+}
+.song-name h1 {
+  line-height: 110%;
+  margin-top: -5%;
+}
+
+.lower-media {
+  overflow: scroll;
+  scroll-behavior: smooth;
+}
+.lower-media::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(5%);
+  }
+  100% {
+    opacity: 100%;
+    transform: translateX(0);
+  }
+}
+
+
+
+
+
+
+
+@media (max-width: 769px) {
+  .dashboard-flex {
+    flex-direction: column-reverse;
+    margin-top: 50vh;
+  }
+  .dashboard-panel {
+    width: 95%;
+  }
+}

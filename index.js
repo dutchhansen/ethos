@@ -39,7 +39,8 @@ app.get('/login', (req, res) => {
     const state = generateRandomString(16);
     res.cookie(stateKey, state);
 
-    const scope = 'user-read-private user-read-email user-library-read user-top-read'
+    let scope = 'user-read-private user-read-email user-library-read user-top-read user-modify-playback-state '
+    scope += 'user-read-playback-state user-read-currently-playing app-remote-control streaming user-library-modify'
 
     const params = new URLSearchParams({
         client_id: CLIENT_ID,

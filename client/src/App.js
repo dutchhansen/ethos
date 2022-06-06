@@ -42,23 +42,23 @@ function App() {
 
     return (
         <div className="App">
-            <div className="navbar-primary">
-                <p className="status-item">Now playing: </p>
-                <p className="status-item">{date}</p>
-                <div className='status-item'>
-                    {profile && (
-                        <div>
-                            <p>{profile.display_name}</p>
-                        </div>
-                    )}
-                </div>
-
-            </div>
             {!token ? (
                 <Login />
             ) : (
                 <>
-                    <Home tracks={topTracks}/>
+                    <div className="navbar-primary">
+                        <p className="status-item">Now playing: </p>
+                        <p className="status-item">{date}</p>
+                        <div className='status-item'>
+                            {profile && (
+                                <div>
+                                    <p>{profile.display_name}</p>
+                                </div>
+                            )}
+                        </div>
+
+                    </div>
+                    <Home token={token} tracks={topTracks}/>
                 </>
             )}
         </div>

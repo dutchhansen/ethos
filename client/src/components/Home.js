@@ -1,4 +1,5 @@
 import SongItem from "./SongItem";
+import Player from "./Player";
 
 function Home(props) {
 
@@ -28,6 +29,9 @@ function Home(props) {
                 <div className='dashboard-panel media-panel'>
 
                     <div className='upper-media'>
+
+                        <Player token={props.token}/>
+
                         <div className='album-cover'>
                             <img src='https://i.scdn.co/image/ab67616d0000b2739ea8c8d190d896bcb886bf6b' alt='album artwork'/>
                         </div>

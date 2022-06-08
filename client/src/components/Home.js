@@ -13,7 +13,7 @@ function Home(props) {
 
             const artistInfo = await getArtistInfo(artist);
 
-            setArtistText(artistInfo.data.parse.text);
+            setArtistText(artistInfo.data);
 
         }
         try {
@@ -71,7 +71,7 @@ function Home(props) {
 
                     <div className='lower-media'>
                         {artistText ? (
-                            <div>{artistText['*'].toString()}</div>
+                            <div>{artistText}</div>
                         ) : (
                             <p></p>
                         )}

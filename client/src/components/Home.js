@@ -12,8 +12,9 @@ function Home(props) {
         const fetchArtistInfo = async (artist, title) => {
 
             const artistInfo = await getArtistInfo(artist, title);
+            let text = artistInfo.data.lyrics.split('\n');
 
-            setArtistText(artistInfo.data.lyrics);
+            setArtistText(text);
 
         }
         try {
@@ -71,7 +72,9 @@ function Home(props) {
 
                     <div className='lower-media'>
                         {artistText ? (
-                            <div>{artistText}</div>
+                            artistText.map((line) => (
+                                <div>{line}</div>
+                            ))
                         ) : (
                             <p></p>
                         )}

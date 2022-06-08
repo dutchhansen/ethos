@@ -96,6 +96,11 @@ button {
   align-items: flex-end;
   background: white;
   cursor: pointer;
+  transition: all 250ms;
+}
+.song-item:hover {
+  background: yellow;
+  transition: all 250ms;
 }
 .song-text {
   margin-bottom: .3rem;
@@ -159,6 +164,7 @@ button {
 .lower-media {
   overflow: scroll;
   scroll-behavior: smooth;
+  line-height: 200%;
 }
 .lower-media::-webkit-scrollbar {
   display: none;

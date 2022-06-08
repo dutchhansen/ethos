@@ -13,7 +13,8 @@ function Home(props) {
 
             const artistInfo = await getArtistInfo(artist);
 
-            setArtistText(artistInfo.data.parse.text)
+            setArtistText(artistInfo.data.parse.text);
+
         }
         try {
             fetchArtistInfo(selectedTrack.artists[0].name);
@@ -70,11 +71,9 @@ function Home(props) {
 
                     <div className='lower-media'>
                         {artistText ? (
-                            artistText
+                            <div>{artistText['*'].toString()}</div>
                         ) : (
-                            <p>
-                                No information found.
-                            </p>
+                            <p></p>
                         )}
                     </div>
 

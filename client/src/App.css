@@ -125,7 +125,7 @@ button {
 .upper-media {
   display: flex;
   flex-direction: row;
-  margin-bottom: 5%;
+  margin-bottom: 4%;
 }
 
 .album-cover {
@@ -162,7 +162,7 @@ button {
 }
 .lower-media::-webkit-scrollbar {
   display: none;
-}
+}w
 
 @keyframes slideInFromBottom {
   0% {

@@ -141,8 +141,9 @@ button {
   margin-top: 0;
 }
 .song-name h1 {
+  font-size: 30px;
   line-height: 110%;
-  margin-top: -5%;
+  margin-top: -2%;
 }
 
 /* AUDIO PLAYER FIXME: add in hyperlink */
@@ -182,7 +183,7 @@ button {
 @media (max-width: 769px) {
   .dashboard-flex {
     flex-direction: column-reverse;
-    margin-top: 50vh;
+    margin-top: 380px;
   }
   .dashboard-panel {
     width: 95%;

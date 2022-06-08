@@ -1,11 +1,28 @@
-import SongItem from "./SongItem";
 import Player from "./Player";
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
+import {getArtistInfo} from "../wikipedia";
 
 function Home(props) {
-    const [selectedURI, setSelectedURI] = useState('');
-    const [selectedAlbumCover, setSelectedAlbumCover] = useState('');
+    const [selectedTrack, setSelectedTrack] = useState('');
     const [playNow, setPlayNow] = useState(false);
+    const [artistText, setArtistText] = useState(null);
+
+    useEffect(() => {
+
+        const fetchArtistInfo = async (artist) => {
+
+            const artistInfo = await getArtistInfo(artist);
+
+            setArtistText(artistInfo.data.parse.text)
+        }
+        try {
+            fetchArtistInfo(selectedTrack.artists[0].name);
+
+        } catch (err) {
+            console.error(err);
+        }
+
+    }, [selectedTrack]);
 
     return (
         <div>
@@ -20,8 +37,7 @@ function Home(props) {
                         {props.tracks && props.tracks.length ? (
                             props.tracks.map((track, i) => (
                                 <div key={track.id} className='song-item' onClick={() => {
-                                    setSelectedURI(track.uri)
-                                    setSelectedAlbumCover(track.album.images[0].url)
+                                    setSelectedTrack(track)
                                     setPlayNow(true)
                                 }}>
                                     <p className='song-text'>{track.name}</p>
@@ -35,15 +51,15 @@ function Home(props) {
                     </div>
                 </div>
                 <div className='dashboard-panel media-panel'>
-                    {selectedAlbumCover ? (
+                    {selectedTrack ? (
                         <div className='upper-media'>
                             <div className='album-cover'>
-                                <img src={selectedAlbumCover} alt='album artwork'/>
+                                <img src={selectedTrack.album.images[0].url} alt='album artwork'/>
                             </div>
                             <div className='song-name'>
-                                <p>Isaiah Rashad</p>
-                                <h1>9-5 Freestyle</h1>
-                                <Player token={props.token} selectedURI={selectedURI} playNow={playNow} />
+                                <p>{selectedTrack.artists[0].name}</p>
+                                <h1>{selectedTrack.name}</h1>
+                                <Player token={props.token} selectedURI={selectedTrack.uri} playNow={playNow} />
                             </div>
                         </div>
                         ) : (
@@ -53,10 +69,13 @@ function Home(props) {
                         )}
 
                     <div className='lower-media'>
-                        <p>
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                        </p>
+                        {artistText ? (
+                            artistText
+                        ) : (
+                            <p>
+                                No information found.
+                            </p>
+                        )}
                     </div>
 
                 </div>

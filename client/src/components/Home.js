@@ -9,15 +9,15 @@ function Home(props) {
 
     useEffect(() => {
 
-        const fetchArtistInfo = async (artist) => {
+        const fetchArtistInfo = async (artist, title) => {
 
-            const artistInfo = await getArtistInfo(artist);
+            const artistInfo = await getArtistInfo(artist, title);
 
-            setArtistText(artistInfo.data);
+            setArtistText(artistInfo.data.lyrics);
 
         }
         try {
-            fetchArtistInfo(selectedTrack.artists[0].name);
+            fetchArtistInfo(selectedTrack.artists[0].name, selectedTrack.name);
 
         } catch (err) {
             console.error(err);

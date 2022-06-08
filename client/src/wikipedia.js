@@ -3,6 +3,6 @@ import axios from 'axios';
 
 // ------------- API CALL -------------
 
-export const getArtistInfo = (artist) => {
-    return axios.get(`https://api.wikimedia.org/core/v1/wikipedia/en/page/${artist}/html`)
+export const getArtistInfo = (artist, title) => {
+    return axios.get(`https://api.lyrics.ovh/v1/${artist}/${title}`)
 }

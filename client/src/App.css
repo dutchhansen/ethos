@@ -98,10 +98,14 @@ button {
   cursor: pointer;
   transition: all 250ms;
 }
-.song-item:hover {
-  background: yellow;
+.song-item p {
   transition: all 250ms;
 }
+.song-item:hover p {
+  margin-left: 10px;
+  transition: all 250ms;
+}
+
 .song-text {
   margin-bottom: .3rem;
 }

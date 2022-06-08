@@ -47,7 +47,7 @@ function App() {
             ) : (
                 <>
                     <div className="navbar-primary">
-                        <p className="status-item">Ethos</p>
+                        <p className="status-item">'Ethos'</p>
                         <p className="status-item">{date}</p>
                         <div className='status-item'>
                             {profile && (

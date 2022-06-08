@@ -66,7 +66,7 @@ function Home(props) {
                         </div>
                         ) : (
                         <div className='upper-media'>
-                            <h2>No media selected.</h2>
+                            <h2>Select a song to play.</h2>
                         </div>
                         )}
 

@@ -9,6 +9,7 @@ function Player(props) {
             <SpotifyPlayer
                 token={props.token}
                 play={props.playNow}
+                autoPlay={true}
                 uris={[props.selectedURI]}
                 styles={{
                     activeColor: '#fff',

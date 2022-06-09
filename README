@@ -1,0 +1,4 @@
+Ethos is a web app that allows you to view your top Spotify songs and their accompanying lyrics.
+
+Project was built on Node, Express, and React.
+Also used the Spotify SDK for audio playback.

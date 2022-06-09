@@ -16,6 +16,28 @@ h1 {
   flex-direction: row;
   border-bottom: 3px solid black;
 }
+.navbar-secondary {
+  display: flex;
+  gap: 12px;
+  flex-direction: row;
+}
+.middle-button {
+  display: flex;
+  align-items: center;
+  height: 1.6rem;
+  margin-top: .65rem;
+  width: 1.6rem;
+  padding: 0;
+  background: none;
+  border: 1px solid black;
+  border-radius: 15%;
+  cursor: pointer;
+}
+.github svg {
+  margin-left: 8%;
+  height: 80%;
+}
+
 
 
 .flex-login {
@@ -28,13 +50,11 @@ h1 {
 .login-item {
   margin: 8px;
 }
-button {
+.login-button {
   border: 3px solid black;
   font-size: 16px;
   padding: 4px 20px;
   background: none;
-}
-.login-button {
   font-weight: bold;
   transition: all 250ms;
 }
@@ -103,6 +123,10 @@ button {
 }
 .song-item:hover p {
   margin-left: 10px;
+  transition: all 250ms;
+}
+.song-item:active p {
+  margin-left: 15px;
   transition: all 250ms;
 }
 
@@ -184,9 +208,6 @@ button {
     transform: translateX(0);
   }
 }
-
-
-
 
 
 

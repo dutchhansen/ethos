@@ -1,6 +1,11 @@
 
 function Login() {
 
+    const LOGIN_URI =
+        (process.env.NODE_ENV !== 'production')
+            ? 'https://ethos-io.herokuapp.com/login'
+            : 'https://ethos-io.herokuapp.com/login'
+
     return (
         <div>
             <div className="navbar-primary intro">
@@ -9,7 +14,7 @@ function Login() {
             </div>
             <div className='flex-login'>
                 <h1 className='login-item'>Welcome</h1>
-                <a href='http://localhost:8888/login'><button className='login-item login-button'>Log in</button></a>
+                <a href={LOGIN_URI}><button className='login-item login-button'>Log in</button></a>
             </div>
         </div>
     );

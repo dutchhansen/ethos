@@ -1,9 +1,14 @@
+
 .App {
   font-size: 16px;
 }
 
 h1 {
   font-size: 38px;
+}
+
+.intro {
+  animation: slideInFromTop ease-in-out 500ms;
 }
 
 .navbar-primary {
@@ -25,7 +30,7 @@ h1 {
   display: flex;
   align-items: center;
   height: 1.6rem;
-  margin-top: .65rem;
+  margin-top: .6rem;
   width: 1.6rem;
   padding: 0;
   background: none;
@@ -33,7 +38,7 @@ h1 {
   border-radius: 15%;
   cursor: pointer;
 }
-.github svg {
+.middle-button svg {
   margin-left: 8%;
   height: 80%;
 }
@@ -45,7 +50,8 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 30vh;
+  margin-top: 32vh;
+  animation: slideInFromBottom ease-out 500ms;
 }
 .login-item {
   margin: 8px;
@@ -79,14 +85,10 @@ h1 {
 /*  FIXME: adjust gap width and add in media query for slim viewports */
 }
 .dashboard-panel {
-  animation: slideInFromBottom 1000ms;
   width: 50%;
   height: 100%;
-  /*border: 1px dotted black;*/
 }
-.library-option {
 
-}
 
 .library-info-flex {
   width: 100%;
@@ -95,7 +97,7 @@ h1 {
   flex-direction: row;
   border-bottom: 3px solid black;
   justify-content: space-between;
-  background: white;
+
 }
 
 .song-selection {
@@ -114,7 +116,6 @@ h1 {
   border-bottom: 1px solid black;
   justify-content: space-between;
   align-items: flex-end;
-  background: white;
   cursor: pointer;
   transition: all 250ms;
 }
@@ -138,16 +139,6 @@ h1 {
   min-width: 150px;
   text-align: right;
 }
-
-
-
-
-
-
-
-
-
-
 
 .media-panel {
   padding-top: 2.6rem;
@@ -196,12 +187,22 @@ h1 {
 }
 .lower-media::-webkit-scrollbar {
   display: none;
-}w
+}
 
 @keyframes slideInFromBottom {
   0% {
     opacity: 0;
-    transform: translateY(5%);
+    transform: translateY(15%);
+  }
+  100% {
+    opacity: 100%;
+    transform: translateX(0);
+  }
+}
+@keyframes slideInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-15%);
   }
   100% {
     opacity: 100%;

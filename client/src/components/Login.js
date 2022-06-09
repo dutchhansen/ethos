@@ -3,9 +3,9 @@ function Login() {
 
     return (
         <div>
-            <div className="navbar-primary">
+            <div className="navbar-primary intro">
                 <p className="status-left">'Ethos'</p>
-                <p className='status-right'>A Project by Dutch Hansen</p>
+                <p className='status-right'>Project by Dutch Hansen</p>
             </div>
             <div className='flex-login'>
                 <h1 className='login-item'>Welcome</h1>

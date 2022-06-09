@@ -9,6 +9,8 @@ const getAccessToken = () => {
     const refresh_token = urlParams.get('refresh_token');
     const hasError = urlParams.get('error');
 
+    window.history.pushState({}, null, '/')
+
     if (hasError || access_token === 'undefined') {
         return false;
     }

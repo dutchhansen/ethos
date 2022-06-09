@@ -1,6 +1,6 @@
 import Player from "./Player";
 import {useState, useEffect} from 'react';
-import {getArtistInfo} from "../wikipedia";
+import {getLyrics} from "../lyrics";
 
 function Home(props) {
     const [selectedTrack, setSelectedTrack] = useState('');
@@ -11,8 +11,8 @@ function Home(props) {
 
         const fetchArtistInfo = async (artist, title) => {
 
-            const artistInfo = await getArtistInfo(artist, title);
-            let text = artistInfo.data.lyrics.split('\n');
+            const artistLyrics = await getLyrics(artist, title);
+            let text = artistLyrics.data.lyrics.split('\n');
 
             setArtistText(text);
 

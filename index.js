@@ -35,7 +35,7 @@ app.get('/login', (req, res) => {
     res.cookie(stateKey, state);
 
     let scope = 'user-read-private user-read-email user-library-read user-top-read user-modify-playback-state '
-    scope += 'user-read-playback-state user-read-currently-playing app-remote-control streaming user-library-modify'
+    scope += 'user-read-playback-state streaming'
 
     const params = new URLSearchParams({
         client_id: CLIENT_ID,

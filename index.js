@@ -28,11 +28,9 @@ const generateRandomString = (length) => {
     return randString;
 }
 
-const stateKey = 'spotify_auth_state'; // FIXME: learn cookies
 
 app.get('/login', (req, res) => {
     const state = generateRandomString(16);
-    res.cookie(stateKey, state);
 
     let scope = 'user-read-private user-read-email user-library-read user-top-read user-modify-playback-state '
     scope += 'user-read-playback-state streaming'

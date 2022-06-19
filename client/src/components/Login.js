@@ -3,8 +3,8 @@ function Login() {
 
     const LOGIN_URI =
         (process.env.NODE_ENV !== 'production')
-            ? 'https://ethos-io.herokuapp.com/login'
-            : 'https://ethos-io.herokuapp.com/login'
+            ? 'https://ethos-audio.herokuapp.com/login'
+            : 'https://ethos-audio.herokuapp.com/login'
 
     return (
         <div>

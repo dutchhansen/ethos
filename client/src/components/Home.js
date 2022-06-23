@@ -2,25 +2,30 @@ import Player from "./Player";
 import {useState, useEffect} from 'react';
 import {getLyrics} from "../lyrics";
 
+
 function Home(props) {
     const [selectedTrack, setSelectedTrack] = useState('');
     const [playNow, setPlayNow] = useState(false);
     const [artistText, setArtistText] = useState('');
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
 
         const fetchArtistInfo = async (artist, title) => {
 
-            setArtistText('Loading...')
-            const artistLyrics = await getLyrics(artist, title);
-            return artistLyrics.data.lyrics.split('\n');
+            const artistLyricsData = await getLyrics(artist, title);
+            const lyrics = artistLyricsData.data.lyrics.split('\n')
+
+            setArtistText(lyrics)
+            setLoading(false);
 
         }
         try {
-            const text = fetchArtistInfo(selectedTrack.artists[0].name, selectedTrack.name);
-            setArtistText(text);
-
+            setArtistText('')
+            setLoading(true);
+            fetchArtistInfo(selectedTrack.artists[0].name, selectedTrack.name)
         } catch (err) {
+            setLoading(false);
             console.error(err);
         }
 
@@ -71,12 +76,17 @@ function Home(props) {
                         )}
 
                     <div className='lower-media'>
+                        {loading ? (
+                            <p>Loading lyrics...</p>
+                        ) : (
+                            <p></p>
+                        )}
                         {artistText ? (
                             artistText.map((line) => (
                                 <div>{line}</div>
                             ))
                         ) : (
-                            <p>No Lyrics</p>
+                            <p></p>
                         )}
                     </div>
 

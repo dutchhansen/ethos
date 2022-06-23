@@ -125,4 +125,6 @@ app.get('*', (req, res) => {
 
 
 // listen on PORT
-app.listen(PORT);
+app.listen(PORT, () => {
+    console.log(`Express app listening at PORT: ${PORT}`);
+});

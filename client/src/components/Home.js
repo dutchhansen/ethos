@@ -5,20 +5,20 @@ import {getLyrics} from "../lyrics";
 function Home(props) {
     const [selectedTrack, setSelectedTrack] = useState('');
     const [playNow, setPlayNow] = useState(false);
-    const [artistText, setArtistText] = useState(null);
+    const [artistText, setArtistText] = useState('');
 
     useEffect(() => {
 
         const fetchArtistInfo = async (artist, title) => {
 
+            setArtistText('Loading...')
             const artistLyrics = await getLyrics(artist, title);
-            let text = artistLyrics.data.lyrics.split('\n');
-
-            setArtistText(text);
+            return artistLyrics.data.lyrics.split('\n');
 
         }
         try {
-            fetchArtistInfo(selectedTrack.artists[0].name, selectedTrack.name);
+            const text = fetchArtistInfo(selectedTrack.artists[0].name, selectedTrack.name);
+            setArtistText(text);
 
         } catch (err) {
             console.error(err);
@@ -76,7 +76,7 @@ function Home(props) {
                                 <div>{line}</div>
                             ))
                         ) : (
-                            <p></p>
+                            <p>No Lyrics</p>
                         )}
                     </div>
 
